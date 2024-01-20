@@ -10,7 +10,7 @@ from email.mime.multipart import MIMEMultipart
 class GUI(QMainWindow):
     def __init__(self):
         super(GUI, self).__init__()
-        uic.loadUi("gui2.ui",self)
+        uic.loadUi("gui.ui",self)
         self.show()
 
         self.loginButton.clicked.connect(self.login)
@@ -23,9 +23,9 @@ class GUI(QMainWindow):
     def login(self):
         try:
             self.smtpserver = smtplib.SMTP_SSL(self.smtpserverEdit.text(), self.smtpportEdit.text())
-            #self.server.ehlo()
-            #self.server.starttls()
-            #self.server.ehlo()
+            #self.smtpserver.ehlo()
+            #self.smtpserver.starttls()
+            #self.smtpserver.ehlo()
             self.smtpserver.login(self.emailEdit.text(), self.passwordEdit.text())
             self.imapserver = imaplib.IMAP4_SSL(self.imapserverEdit.text(), self.imapportEdit.text())
             self.imapserver.login(self.emailEdit.text(), self.passwordEdit.text())
@@ -71,7 +71,7 @@ class GUI(QMainWindow):
                 self.attachmentLabel.setText(self.attachmentLabel.text() + " " + filename)
     def send_mail(self):
         dialog = QMessageBox()
-        dialog.setTest("Czy na pewno chcesz wysłać tą wiadomość?")
+        dialog.setText("Czy na pewno chcesz wysłać tą wiadomość?")
         dialog.addButton(QPushButton("Tak"), QMessageBox.YesRole) #0
         dialog.addButton(QPushButton("Nie"), QMessageBox.NoRole) #1
         if dialog.exec_() == 0:
@@ -81,7 +81,7 @@ class GUI(QMainWindow):
                 self.msg['Subject'] = self.subjectEdit.text()
                 self.msg.attach(MIMEText(self.textEdit.toPlainText(),'plain'))
                 text = self.msg.as_string()
-                self.server.sendmail(self.lineEdit.text(),self.lineEdit_5.text(),text)
+                self.smtpserver.sendmail(self.emailEdit.text(),self.toEdit.text(),text)
                 message_box = QMessageBox()
                 message_box.setText("Wiadomosc wysłana")
                 message_box.exec()
@@ -90,21 +90,24 @@ class GUI(QMainWindow):
                 message_box.setText("Wysyłanie zakończono niepowodzeinem")
                 message_box.exec()
     def get_inbox(self):
-        self.imapserver.select("Sent")
-        _, msgnums = self.imap.search(None, "ALL")
-        for msgnum in msgnums[0].split():
-            _, data = self.imap.fetch(msgnum, "(RFC822)")
-            message = message_from_bytes(data[0][1])
-            print(f"Message Number: {msgnum}")
-            print(f"From: {message.get('From')}")
-            print(f"To: {message.get('To')}")
-            print(f"BBC: {message.get('BCC')}")
-            print(f"Date: {message.get('Date')}")
-            print(f"Subject: {message.get('Subject')}")
-            print("Content:")
-            for part in message.walk():
-                if part.get_content_type() == "text/plain":
-                    print(part.as_string())
+        try:
+            self.imapserver.select("Sent")
+            _, msgnums = self.imapserver.search(None, "ALL")
+            for msgnum in msgnums[0].split():
+                _, data = self.imap.fetch(msgnum, "(RFC822)")
+                message = message_from_bytes(data[0][1])
+                print(f"Message Number: {msgnum}")
+                print(f"From: {message.get('From')}")
+                print(f"To: {message.get('To')}")
+                print(f"BBC: {message.get('BCC')}")
+                print(f"Date: {message.get('Date')}")
+                print(f"Subject: {message.get('Subject')}")
+                print("Content:")
+                for part in message.walk():
+                    if part.get_content_type() == "text/plain":
+                        print(part.as_string())
+        except:
+            print("cos ci sie zjebalo kolezko")
 app = QApplication([])
 window = GUI()
 app.exec_()
