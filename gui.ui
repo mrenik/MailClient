@@ -317,6 +317,19 @@
      <string>Załączniki:</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="mailButton">
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>690</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Get Mails</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
