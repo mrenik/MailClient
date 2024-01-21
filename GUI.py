@@ -87,7 +87,7 @@ class GUI(QMainWindow):
                 message_box.exec()
             except:
                 message_box = QMessageBox()
-                message_box.setText("Wysyłanie zakończono niepowodzeinem")
+                message_box.setText("Wysyłanie zakończono niepowodzeniem")
                 message_box.exec()
     def get_inbox(self):
         try:
@@ -108,6 +108,8 @@ class GUI(QMainWindow):
                         print(part.as_string())
         except:
             print("cos ci sie zjebalo kolezko")
-app = QApplication([])
-window = GUI()
-app.exec_()
+
+if __name__ == "__main__":
+    app = QApplication([])
+    window = GUI()
+    app.exec_()
