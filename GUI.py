@@ -12,14 +12,13 @@ class GUI(QMainWindow):
         super(GUI, self).__init__()
         uic.loadUi("gui.ui",self)
         self.show()
-
+        self.messages = []
         self.loginButton.clicked.connect(self.login)
         self.attachmentButton.clicked.connect(self.attach)
         self.sendButton.clicked.connect(self.send_mail)
         self.mailButton.clicked.connect(self.get_inbox)
-
-
-
+        self.readButton.clicked.connect(self.read_mail)
+ 
     def login(self):
         try:
             self.smtpserver = smtplib.SMTP_SSL(self.smtpserverEdit.text(), self.smtpportEdit.text())
@@ -43,7 +42,9 @@ class GUI(QMainWindow):
             self.textEdit.setEnabled(True)
             self.sendButton.setEnabled(True)
             self.attachmentButton.setEnabled(True)
-            self.inboxView.setEnabled(True)
+            self.inboxTable.setEnabled(True)      
+            self.mailButton.setEnabled(True)
+
 
             self.msg = MIMEMultipart()
         except smtplib.SMTPAuthenticationError:
@@ -76,7 +77,7 @@ class GUI(QMainWindow):
         dialog.addButton(QPushButton("Nie"), QMessageBox.NoRole) #1
         if dialog.exec_() == 0:
             try:
-                self.msg['From'] = "jakis ziomek"
+                self.msg['From'] = self.mailEdit.text()
                 self.msg['To'] = self.toEdit.text()
                 self.msg['Subject'] = self.subjectEdit.text()
                 self.msg.attach(MIMEText(self.textEdit.toPlainText(),'plain'))
@@ -87,24 +88,66 @@ class GUI(QMainWindow):
                 message_box.exec()
             except:
                 message_box = QMessageBox()
-                message_box.setText("Wysyłanie zakończono niepowodzeniem")
+                message_box.setText("Wysyłanie zakończono niepowodzeinem")
                 message_box.exec()
     def get_inbox(self):
         try:
-            self.imapserver.select("Sent")
+            row = 0
+
+            self.imapserver.select("inbox")
             _, msgnums = self.imapserver.search(None, "ALL")
             for msgnum in msgnums[0].split():
-                _, data = self.imap.fetch(msgnum, "(RFC822)")
+                _, data = self.imapserver.fetch(msgnum, "(RFC822)")
                 message = message_from_bytes(data[0][1])
-                print(f"Message Number: {msgnum}")
-                print(f"From: {message.get('From')}")
-                print(f"To: {message.get('To')}")
-                print(f"BBC: {message.get('BCC')}")
-                print(f"Date: {message.get('Date')}")
-                print(f"Subject: {message.get('Subject')}")
-                print("Content:")
+                
+                self.inboxTable.setRowCount(row+1)
+                self.inboxTable.setItem(row, 0, QTableWidgetItem(str(row+1)))
+                self.inboxTable.setItem(row, 1, QTableWidgetItem(str(message.get('From'))))
+                self.inboxTable.setItem(row, 2, QTableWidgetItem(str(message.get('Subject'))))
+                self.inboxTable.setItem(row, 3, QTableWidgetItem(str(message.get('Date'))))
+                row = row + 1
                 for part in message.walk():
                     if part.get_content_type() == "text/plain":
+                        content = part.as_string()
+                messagedata = {'Nr': row+1, 'Od': str(message.get('From')), 'Do': str(message.get('To')), 'Data': str(message.get('Date')), 'Temat': str(message.get('Subject')), 'Tresc': content}
+                self.messages.append(messagedata)
+            self.imapserver.logout()
+            time.sleep(1)
+            self.imapserver = imaplib.IMAP4_SSL(self.imapserverEdit.text(), self.imapportEdit.text())
+            self.imapserver.login(self.emailEdit.text(), self.passwordEdit.text())
+            self.readButton.setEnabled(True)
+        except Exception as e :
+            print(e)
+
+    def read_mail(self):
+        try:
+            selectedItems = self.inboxTable.selectedItems()
+            if selectedItems:
+                firstSelectedItem = selectedItems[0]
+                selectedRow = firstSelectedItem.row()
+
+            rowData = []
+            for column in range(self.inboxTable.columnCount()):
+                item = self.inboxTable.item(selectedRow, column)
+                if item is not None:
+                    rowData.append(item.text())
+                else:
+                    rowData.append("")
+            mailnumber = rowData[0]
+            print(self.messages[int(mailnumber)-1]['Tresc'])
+            dialog = QDialog()
+            uic.loadUi("mail.ui",dialog)
+
+            dialog.fromLine.setText(self.messages[int(mailnumber)-1]['Od'])
+            dialog.dateLine.setText(self.messages[int(mailnumber)-1]['Data'])
+            dialog.subjectLine.setText(self.messages[int(mailnumber)-1]['Temat'])
+            dialog.contentBox.setText(self.messages[int(mailnumber)-1]['Tresc'])
+            dialog.exec()
+        except Exception as e:
+            print(e)
+app = QApplication([])
+window = GUI()
+app.exec_()
                         print(part.as_string())
         except:
             print("cos ci sie zjebalo kolezko")

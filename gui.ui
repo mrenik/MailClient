@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1056</width>
-    <height>784</height>
+    <width>1264</width>
+    <height>804</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -265,18 +265,50 @@
      <string>Dodaj załączniki</string>
     </property>
    </widget>
-   <widget class="QListView" name="inboxView">
+   <widget class="QTableWidget" name="inboxTable">
     <property name="enabled">
      <bool>false</bool>
     </property>
     <property name="geometry">
      <rect>
-      <x>540</x>
-      <y>230</y>
-      <width>461</width>
+      <x>530</x>
+      <y>220</y>
+      <width>671</width>
       <height>451</height>
      </rect>
     </property>
+    <property name="minimumSize">
+     <size>
+      <width>671</width>
+      <height>0</height>
+     </size>
+    </property>
+    <property name="columnCount">
+     <number>4</number>
+    </property>
+    <attribute name="horizontalHeaderDefaultSectionSize">
+     <number>125</number>
+    </attribute>
+    <column>
+     <property name="text">
+      <string>Nr:</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Od:</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Temat:</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Data:</string>
+     </property>
+    </column>
    </widget>
    <widget class="QLabel" name="inboxLabel">
     <property name="geometry">
@@ -304,7 +336,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="attachmentLabel">
     <property name="geometry">
      <rect>
       <x>230</x>
@@ -318,6 +350,9 @@
     </property>
    </widget>
    <widget class="QPushButton" name="mailButton">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>540</x>
@@ -328,6 +363,22 @@
     </property>
     <property name="text">
      <string>Get Mails</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="readButton">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>880</x>
+      <y>730</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>przeczytaj</string>
     </property>
    </widget>
   </widget>
