@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>767</width>
-    <height>537</height>
+    <width>744</width>
+    <height>702</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,7 +17,7 @@
    <property name="geometry">
     <rect>
      <x>90</x>
-     <y>40</y>
+     <y>50</y>
      <width>431</width>
      <height>20</height>
     </rect>
@@ -30,8 +30,8 @@
    <property name="geometry">
     <rect>
      <x>90</x>
-     <y>70</y>
-     <width>201</width>
+     <y>80</y>
+     <width>431</width>
      <height>20</height>
     </rect>
    </property>
@@ -44,7 +44,7 @@
     <rect>
      <x>90</x>
      <y>110</y>
-     <width>201</width>
+     <width>431</width>
      <height>20</height>
     </rect>
    </property>
@@ -56,9 +56,9 @@
    <property name="geometry">
     <rect>
      <x>90</x>
-     <y>140</y>
-     <width>261</width>
-     <height>361</height>
+     <y>150</y>
+     <width>431</width>
+     <height>441</height>
     </rect>
    </property>
    <property name="readOnly">
@@ -68,10 +68,10 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>60</x>
-     <y>40</y>
-     <width>42</width>
-     <height>12</height>
+     <x>30</x>
+     <y>50</y>
+     <width>31</width>
+     <height>21</height>
     </rect>
    </property>
    <property name="text">
@@ -81,10 +81,10 @@
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>70</y>
+     <x>30</x>
+     <y>80</y>
      <width>42</width>
-     <height>12</height>
+     <height>21</height>
     </rect>
    </property>
    <property name="text">
@@ -94,10 +94,10 @@
   <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
-     <x>50</x>
+     <x>30</x>
      <y>110</y>
      <width>42</width>
-     <height>12</height>
+     <height>21</height>
     </rect>
    </property>
    <property name="text">
@@ -107,14 +107,40 @@
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
-     <x>50</x>
+     <x>30</x>
      <y>150</y>
      <width>42</width>
-     <height>12</height>
+     <height>21</height>
     </rect>
    </property>
    <property name="text">
     <string>Treść:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="attachmentLabel">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>620</y>
+     <width>601</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Załączniki:</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="dowloadButton">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>650</y>
+     <width>181</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Pobierz załączniki</string>
    </property>
   </widget>
  </widget>
