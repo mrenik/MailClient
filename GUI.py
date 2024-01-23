@@ -26,6 +26,7 @@ class GUI(QMainWindow):
         self.sendButton.clicked.connect(self.send_mail)
         self.mailButton.clicked.connect(self.get_inbox)
         self.readButton.clicked.connect(self.read_mail)
+        self.setWindowTitle("MailClient")
 
         self.inboxTable.setColumnWidth(0,50)
         self.inboxTable.setColumnWidth(1,234)
@@ -84,11 +85,13 @@ class GUI(QMainWindow):
             self.msg = MIMEMultipart()
         except smtplib.SMTPAuthenticationError:
             message_box = QMessageBox()
+            message_box.setWindowTitle("Błąd")
             message_box.setText("Błędne dane logowania!")
             message_box.exec()
         except:
             message_box = QMessageBox()
-            message_box.setText("Logowanie zakończone niepowodzeniem")
+            message_box.setWindowTitle("Błąd")
+            message_box.setText("Logowanie zakończone niepowodzeniem!")
             message_box.exec()
 
     def attach(self):
@@ -162,6 +165,7 @@ class GUI(QMainWindow):
                 for part in message.walk():
                     if part.get_content_type() == "text/plain":
                         content = part.as_string()
+                        break
                 messagedata = {'Nr': row + 1, 'Od': str(message.get('From')), 'Do': str(message.get('To')),
                                'Data': str(message.get('Date')), 'Temat': str(message.get('Subject')), 'Tresc': content}
                 self.messages.append(messagedata)
@@ -205,11 +209,12 @@ class GUI(QMainWindow):
                     continue
 
                 filename = filename + part.get_filename() + ", "
-                print(filename)
+                #print(filename)
             if filename.endswith(", "):
                 filename = filename[:-2]
             if filename == "":
                 dialog.dowloadButton.setEnabled(False)
+            dialog.setWindowTitle("Wiadomość od: " + self.messages[self.mailnumber - 1]['Od'])
             dialog.attachmentLabel.setText(dialog.attachmentLabel.text() + filename)
             dialog.dowloadButton.clicked.connect(self.download_attachment)
             dialog.fromLine.setText(self.messages[self.mailnumber - 1]['Od'])
@@ -260,10 +265,12 @@ class GUI(QMainWindow):
                     with open(sciezka, 'wb') as f:
                         f.write(zawartosc)
             message_box = QMessageBox()
-            message_box.setText("Pomyślnie pobrano załącznik")
+            message.setWindowTitle("Pomyślnie pobrano")
+            message_box.setText("Pomyślnie pobrano załączniki")
             message_box.exec()
         except Exception as e:
             message_box = QMessageBox()
+            message.setWindowTitle("Błąd")
             message_box.setText("Błąd przy pobieraniu załącznika")
             print(e)
             message_box.exec()
@@ -272,6 +279,7 @@ class GUI(QMainWindow):
         try:
             self.gen_form = QDialog()
             uic.loadUi("key.ui", self.gen_form)
+            self.gen_form.setWindowTitle("Wygeneruj nowy klucz")
             self.gen_form.mailEdit.setText(self.emailEdit.text())
             # self.gen_form.mailEdit.setReadOnly(True)
             self.gen_form.keyGenButton.clicked.connect(self.add_key)
@@ -303,6 +311,7 @@ class GUI(QMainWindow):
 
     def show_import_form(self):
         dialog = ImportKeyDialog(self.gpg)
+        dialog.setWindowTitle("Importuj klucze")
         dialog.exec_()
 
 
