@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>744</width>
-    <height>702</height>
+    <width>767</width>
+    <height>703</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,7 +17,7 @@
    <property name="geometry">
     <rect>
      <x>90</x>
-     <y>50</y>
+     <y>40</y>
      <width>431</width>
      <height>20</height>
     </rect>
@@ -30,7 +30,7 @@
    <property name="geometry">
     <rect>
      <x>90</x>
-     <y>80</y>
+     <y>70</y>
      <width>431</width>
      <height>20</height>
     </rect>
@@ -43,7 +43,7 @@
    <property name="geometry">
     <rect>
      <x>90</x>
-     <y>110</y>
+     <y>100</y>
      <width>431</width>
      <height>20</height>
     </rect>
@@ -56,9 +56,9 @@
    <property name="geometry">
     <rect>
      <x>90</x>
-     <y>150</y>
+     <y>140</y>
      <width>431</width>
-     <height>441</height>
+     <height>461</height>
     </rect>
    </property>
    <property name="readOnly">
@@ -68,79 +68,136 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>50</y>
-     <width>31</width>
-     <height>21</height>
+     <x>40</x>
+     <y>40</y>
+     <width>42</width>
+     <height>12</height>
     </rect>
    </property>
    <property name="text">
     <string>Od:</string>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+   </property>
   </widget>
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>80</y>
+     <x>40</x>
+     <y>70</y>
      <width>42</width>
-     <height>21</height>
+     <height>12</height>
     </rect>
    </property>
    <property name="text">
     <string>Temat:</string>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+   </property>
   </widget>
   <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>110</y>
+     <x>40</x>
+     <y>100</y>
      <width>42</width>
-     <height>21</height>
+     <height>12</height>
     </rect>
    </property>
    <property name="text">
     <string>Data:</string>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+   </property>
   </widget>
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>150</y>
+     <x>40</x>
+     <y>140</y>
      <width>42</width>
-     <height>21</height>
+     <height>12</height>
     </rect>
    </property>
    <property name="text">
     <string>Treść:</string>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+   </property>
   </widget>
-  <widget class="QLabel" name="attachmentLabel">
+  <widget class="QPushButton" name="decryptButton">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>620</y>
-     <width>601</width>
-     <height>16</height>
+     <x>450</x>
+     <y>640</y>
+     <width>75</width>
+     <height>21</height>
     </rect>
    </property>
    <property name="text">
-    <string>Załączniki:</string>
+    <string>Odszyfruj</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="decryptPasswordEdit">
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>640</y>
+     <width>113</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="echoMode">
+    <enum>QLineEdit::Password</enum>
+   </property>
+   <property name="placeholderText">
+    <string>Hasło</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="verifyLabel">
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>660</y>
+     <width>191</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Brak uwierzytelnienia</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
    </property>
   </widget>
   <widget class="QPushButton" name="dowloadButton">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>650</y>
+     <x>40</x>
+     <y>640</y>
      <width>181</width>
      <height>41</height>
     </rect>
    </property>
    <property name="text">
     <string>Pobierz załączniki</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="attachmentLabel">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>610</y>
+     <width>601</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Załączniki:</string>
    </property>
   </widget>
  </widget>
