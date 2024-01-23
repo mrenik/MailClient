@@ -1,0 +1,34 @@
+To certyfikat unieważnienia dla klucza OpenPGP:
+
+pub   rsa2048 2024-01-22 [SCEAR]
+      957ACAA403997DB2159DDC07E2303756662CC2EC
+uid          2024-01-22_19:23:13 <john.doe@example.com>
+
+Certyfikat unieważnienia to rodzaj ,,wyłącznika awaryjnego,, do
+publicznego zadeklarowania, że klucz nie powinien być już więcej
+używany. Po opublikowaniu takiego certyfikatu nie jest już możliwe
+wycofanie go.
+
+Możliwość tę należy wykorzystać w przypadku kompromitacji lub utraty
+klucza tajnego. Co więcej, jeśli klucz tajny jest nadal dostępny,
+lepiej wygenerować nowy certyfikat unieważnienia i podać powód
+unieważnienia. Więcej szczegółów w opisie polecenia gpg
+,,--generate-revocation'' w podręczniku do GnuPG.
+
+Aby zapobiec przypadkowemu użyciu tego pliku, poniżej przed 5 kreskami
+został umieszczony dwukropek. Należy go usunąć przy użyciu edytora
+tekstu przed zaimportowaniem i opublikowaniem tego certyfikatu
+unieważnienia.
+
+:-----BEGIN PGP PUBLIC KEY BLOCK-----
+Comment: This is a revocation certificate
+
+iQE2BCABCAAgFiEElXrKpAOZfbIVndwH4jA3VmYswuwFAmWuspECHQAACgkQ4jA3
+VmYswuzLnQgArqaTNFwU+7VSBKO3Z+ubkfJFfMcy37pH2BsNPwj/VgNG4jCRYaIG
+eftHFdmMDDVCju7/ZAMyKUg4DLIaWyI9r4eP7BdGBBfkrz7EVSyFmYd/kHlOZIDI
+4EIrkM6aZeUtN/8J4ZV9qKSAaDPm6AQsc3hcJHHqMvFxDWDtQ6xjFGzZUaryJ6od
+0wbu84CY9p1yMkJbQYCHXQDsEkdlrmigySjBvRt0ZjQk/b54tDc9SQj2kS2rWSH/
+udbUVYKh0vUnjgyRBNPHAmaSANngQY96TIvCswdjhcdqG71QXmrZqcSpTkSMY+8U
+RHcGLPtUbVk0WUqhpiCRCSa0Hi26cU/PsQ==
+=2/Xt
+-----END PGP PUBLIC KEY BLOCK-----

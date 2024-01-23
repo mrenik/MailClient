@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1264</width>
+    <width>1419</width>
     <height>804</height>
    </rect>
   </property>
@@ -17,20 +17,23 @@
    <widget class="QLabel" name="mailLabel">
     <property name="geometry">
      <rect>
-      <x>20</x>
+      <x>10</x>
       <y>20</y>
       <width>61</width>
       <height>21</height>
      </rect>
     </property>
     <property name="text">
-     <string>Adres Email:</string>
+     <string>Email:</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="passwordLabel">
     <property name="geometry">
      <rect>
-      <x>50</x>
+      <x>40</x>
       <y>50</y>
       <width>31</width>
       <height>16</height>
@@ -39,11 +42,14 @@
     <property name="text">
      <string>Hasło:</string>
     </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
    </widget>
    <widget class="QLabel" name="smtpserverLabel">
     <property name="geometry">
      <rect>
-      <x>270</x>
+      <x>260</x>
       <y>20</y>
       <width>71</width>
       <height>16</height>
@@ -52,24 +58,30 @@
     <property name="text">
      <string>Serwer SMTP:</string>
     </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
    </widget>
    <widget class="QLabel" name="smtpportLabel">
     <property name="geometry">
      <rect>
-      <x>280</x>
+      <x>270</x>
       <y>50</y>
-      <width>51</width>
-      <height>16</height>
+      <width>61</width>
+      <height>20</height>
      </rect>
     </property>
     <property name="text">
      <string>Port SMTP:</string>
     </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
    </widget>
    <widget class="QLabel" name="imapserverLabel">
     <property name="geometry">
      <rect>
-      <x>510</x>
+      <x>520</x>
       <y>20</y>
       <width>71</width>
       <height>16</height>
@@ -78,11 +90,14 @@
     <property name="text">
      <string>Serwer IMAP:</string>
     </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
    </widget>
    <widget class="QLabel" name="imapportlabel">
     <property name="geometry">
      <rect>
-      <x>520</x>
+      <x>530</x>
       <y>50</y>
       <width>61</width>
       <height>16</height>
@@ -90,6 +105,9 @@
     </property>
     <property name="text">
      <string>Port IMAP:</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
     </property>
    </widget>
    <widget class="QLineEdit" name="emailEdit">
@@ -101,6 +119,9 @@
       <height>20</height>
      </rect>
     </property>
+    <property name="text">
+     <string>busprojekt1@op.pl</string>
+    </property>
    </widget>
    <widget class="QLineEdit" name="passwordEdit">
     <property name="geometry">
@@ -110,6 +131,9 @@
       <width>161</width>
       <height>20</height>
      </rect>
+    </property>
+    <property name="text">
+     <string>Busowehaslo123</string>
     </property>
     <property name="echoMode">
      <enum>QLineEdit::Password</enum>
@@ -124,6 +148,9 @@
       <height>20</height>
      </rect>
     </property>
+    <property name="text">
+     <string>smtp.poczta.onet.pl</string>
+    </property>
    </widget>
    <widget class="QLineEdit" name="smtpportEdit">
     <property name="geometry">
@@ -134,38 +161,34 @@
       <height>20</height>
      </rect>
     </property>
+    <property name="text">
+     <string>465</string>
+    </property>
    </widget>
    <widget class="QLineEdit" name="imapserverEdit">
     <property name="geometry">
      <rect>
-      <x>580</x>
+      <x>600</x>
       <y>20</y>
       <width>161</width>
       <height>20</height>
      </rect>
     </property>
+    <property name="text">
+     <string>imap.poczta.onet.pl</string>
+    </property>
    </widget>
    <widget class="QLineEdit" name="imapportEdit">
     <property name="geometry">
      <rect>
-      <x>580</x>
+      <x>600</x>
       <y>50</y>
       <width>161</width>
       <height>20</height>
      </rect>
     </property>
-   </widget>
-   <widget class="QPushButton" name="loginButton">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>80</y>
-      <width>75</width>
-      <height>23</height>
-     </rect>
-    </property>
     <property name="text">
-     <string>Zaloguj</string>
+     <string>993</string>
     </property>
    </widget>
    <widget class="QLabel" name="toLabel">
@@ -197,8 +220,8 @@
    <widget class="QLabel" name="contentLabel">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>200</y>
+      <x>30</x>
+      <y>210</y>
       <width>61</width>
       <height>16</height>
      </rect>
@@ -215,7 +238,7 @@
      <rect>
       <x>70</x>
       <y>130</y>
-      <width>161</width>
+      <width>311</width>
       <height>20</height>
      </rect>
     </property>
@@ -228,7 +251,7 @@
      <rect>
       <x>70</x>
       <y>160</y>
-      <width>161</width>
+      <width>311</width>
       <height>20</height>
      </rect>
     </property>
@@ -239,8 +262,8 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>700</y>
+      <x>30</x>
+      <y>750</y>
       <width>91</width>
       <height>31</height>
      </rect>
@@ -255,8 +278,8 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>220</x>
-      <y>700</y>
+      <x>360</x>
+      <y>720</y>
       <width>111</width>
       <height>31</height>
      </rect>
@@ -272,8 +295,8 @@
     <property name="geometry">
      <rect>
       <x>530</x>
-      <y>220</y>
-      <width>671</width>
+      <y>230</y>
+      <width>791</width>
       <height>451</height>
      </rect>
     </property>
@@ -313,8 +336,8 @@
    <widget class="QLabel" name="inboxLabel">
     <property name="geometry">
      <rect>
-      <x>550</x>
-      <y>200</y>
+      <x>530</x>
+      <y>210</y>
       <width>111</width>
       <height>16</height>
      </rect>
@@ -337,10 +360,13 @@
     </property>
    </widget>
    <widget class="QLabel" name="attachmentLabel">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
-      <x>230</x>
-      <y>740</y>
+      <x>220</x>
+      <y>760</y>
       <width>491</width>
       <height>16</height>
      </rect>
@@ -349,20 +375,217 @@
      <string>Załączniki:</string>
     </property>
    </widget>
+   <widget class="QCheckBox" name="signBox">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>690</y>
+      <width>81</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Podpisz</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="encryptBox">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>720</y>
+      <width>81</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Zaszyfruj</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="keySelectPrivButton">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>690</y>
+      <width>181</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Wybierz klucz prywatny</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="keySelectPubButton">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>720</y>
+      <width>181</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Wybierz klucz publiczny</string>
+    </property>
+   </widget>
+   <widget class="QListWidget" name="listPriv">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>670</y>
+      <width>10</width>
+      <height>10</height>
+     </rect>
+    </property>
+    <property name="selectionRectVisible">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QListWidget" name="listPub">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>700</y>
+      <width>10</width>
+      <height>10</height>
+     </rect>
+    </property>
+    <property name="selectionRectVisible">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>530</x>
+      <y>130</y>
+      <width>271</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <property name="spacing">
+      <number>12</number>
+     </property>
+     <item>
+      <widget class="QPushButton" name="keyGenFormButton">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="text">
+        <string>Wygeneruj
+nowy klucz</string>
+       </property>
+       <property name="flat">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="keyImportFormButton">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="text">
+        <string>Importuj
+klucze</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="keyListButton">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="text">
+        <string>Lista
+kluczy</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QLineEdit" name="passwordEditPriv">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>310</x>
+      <y>690</y>
+      <width>161</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="echoMode">
+     <enum>QLineEdit::Password</enum>
+    </property>
+    <property name="placeholderText">
+     <string>Hasło do klucza</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="loginButton">
+    <property name="geometry">
+     <rect>
+      <x>370</x>
+      <y>80</y>
+      <width>111</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Zaloguj</string>
+    </property>
+   </widget>
    <widget class="QPushButton" name="mailButton">
     <property name="enabled">
      <bool>false</bool>
     </property>
     <property name="geometry">
      <rect>
-      <x>540</x>
-      <y>690</y>
-      <width>75</width>
-      <height>23</height>
+      <x>530</x>
+      <y>700</y>
+      <width>191</width>
+      <height>61</height>
      </rect>
     </property>
     <property name="text">
-     <string>Get Mails</string>
+     <string>Pobierz skrzynkę odbiorczą</string>
     </property>
    </widget>
    <widget class="QPushButton" name="readButton">
@@ -371,16 +594,67 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>880</x>
-      <y>730</y>
-      <width>75</width>
-      <height>23</height>
+      <x>750</x>
+      <y>700</y>
+      <width>191</width>
+      <height>61</height>
      </rect>
     </property>
     <property name="text">
-     <string>przeczytaj</string>
+     <string>Odczytaj wybraną wiadomość</string>
     </property>
    </widget>
+   <widget class="QListWidget" name="listKeys">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>500</x>
+      <y>110</y>
+      <width>10</width>
+      <height>10</height>
+     </rect>
+    </property>
+    <property name="selectionRectVisible">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <zorder>mailButton</zorder>
+   <zorder>passwordEditPriv</zorder>
+   <zorder>mailLabel</zorder>
+   <zorder>passwordLabel</zorder>
+   <zorder>smtpserverLabel</zorder>
+   <zorder>smtpportLabel</zorder>
+   <zorder>imapserverLabel</zorder>
+   <zorder>imapportlabel</zorder>
+   <zorder>emailEdit</zorder>
+   <zorder>passwordEdit</zorder>
+   <zorder>smtpserverEdit</zorder>
+   <zorder>smtpportEdit</zorder>
+   <zorder>imapserverEdit</zorder>
+   <zorder>imapportEdit</zorder>
+   <zorder>toLabel</zorder>
+   <zorder>subjectLabel</zorder>
+   <zorder>contentLabel</zorder>
+   <zorder>toEdit</zorder>
+   <zorder>subjectEdit</zorder>
+   <zorder>sendButton</zorder>
+   <zorder>attachmentButton</zorder>
+   <zorder>inboxTable</zorder>
+   <zorder>inboxLabel</zorder>
+   <zorder>textEdit</zorder>
+   <zorder>attachmentLabel</zorder>
+   <zorder>signBox</zorder>
+   <zorder>encryptBox</zorder>
+   <zorder>keySelectPrivButton</zorder>
+   <zorder>keySelectPubButton</zorder>
+   <zorder>layoutWidget</zorder>
+   <zorder>listPriv</zorder>
+   <zorder>listPub</zorder>
+   <zorder>loginButton</zorder>
+   <zorder>readButton</zorder>
+   <zorder>listKeys</zorder>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
